@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.simple.service"
+	android:versionCode="90"
+	android:versionName="0.0.9">
+
+	<uses-sdk android:minSdkVersion="13"/>
+	<!-- Include required permissions for Google Mobile Ads to run-->
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+	<application
+		android:name="car.simple.service.model.CarServiceApplication"
+		android:icon="@drawable/icon"
+		android:label="@string/app_name"
+		android:theme="@style/HoloCustomTheme">
+		<!--This meta-data tag is required to use Google Play Services.-->
+		<meta-data
+		android:name="com.google.android.gms.version"
+		android:value="@integer/google_play_services_version"/>
+
+		<activity
+			android:name="car.simple.service.MyActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait"
+			android:configChanges="keyboardHidden|orientation|screenSize">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="car.simple.service.Statistic"
+			android:screenOrientation="portrait"
+			android:configChanges="keyboardHidden|orientation|screenSize"/>
+		<activity android:name="car.simple.service.OptionMenuActivity"/>
+		<activity
+			android:name="com.google.android.gms.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+		<activity
+			android:name="car.simple.service.alarms.AlertDialogActivity"
+			android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
+			android:screenOrientation="portrait"
+			android:configChanges="keyboardHidden|orientation|screenSize"/>
+		<receiver
+			android:name="car.simple.service.alarms.AlarmReceiver">
+
+			</receiver>
+	</application>
+</manifest> 

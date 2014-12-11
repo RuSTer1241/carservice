@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_gravity="center"
+    android:background="@drawable/roundconers"
+	>
+	<RelativeLayout
+		android:id="@+id/title_area"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="left"
+		android:background="@color/main_base_color"
+		>
+		<ImageView
+			android:id="@+id/dialog_icon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/temperature"
+			android:layout_margin="7dp"
+			/>
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="2"
+			android:layout_toRightOf="@+id/dialog_icon"
+			android:layout_marginLeft="5dp"
+			android:text="Title"
+			android:textSize="20sp"
+			android:textColor="@color/white"
+			>
+		</TextView>
+	</RelativeLayout>
+
+	<LinearLayout
+		android:id="@+id/quantity_area"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="left"
+		android:layout_margin="@dimen/dimen_10dp_w"
+
+		>
+		</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/comment_area"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:layout_margin="@dimen/dimen_10dp_w"
+		>
+
+	</LinearLayout>
+
+	<RelativeLayout
+		android:id="@+id/button_area"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:paddingBottom="4dp"
+		>
+		</RelativeLayout>
+</LinearLayout>

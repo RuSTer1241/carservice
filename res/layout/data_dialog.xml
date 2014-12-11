@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<CalendarView
+		android:id="@+id/calendar"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:background="@color/font_base_color">
+		</CalendarView>
+	<Button
+		android:id="@+id/calendar_done_but"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:text="DONE"
+		android:layout_weight="9"
+		android:textColor="@color/font_base_color"
+		android:background="@color/font_dim_color"
+
+		/>
+	</LinearLayout>

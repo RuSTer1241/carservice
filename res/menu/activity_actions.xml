@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<!-- Search, should appear as action button -->
+	<!--<item android:id="@+id/action_chart"
+		android:icon="@drawable/chart_line"
+		android:title="@string/action_chart"
+		android:showAsAction="ifRoom"
+		/>
+	<item android:id="@+id/share"
+		android:icon="@drawable/ic_menu_share"
+		android:title="@string/share"
+		android:showAsAction="ifRoom"
+		/>
+	<item android:id="@+id/statistic"
+		android:title="@string/statistic"
+		android:showAsAction="never"/>-->
+	<item android:id="@+id/measure_settings"
+		android:title="@string/action_measure_unit"
+		android:showAsAction="never"/>
+	<item android:id="@+id/about_app"
+		android:title="@string/about_app"
+		android:showAsAction="never"/>
+	<item android:id="@+id/exit"
+		android:title="@string/exit"
+		android:showAsAction="never"/>
+
+</menu>

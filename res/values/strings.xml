@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Car Simple Service</string>
+	<string name="action_chart">Chart</string>
+	<string name="action_list">List</string>
+	<string name="action_measure_unit">Measurement</string>
+	<string name="action_db_backupto_local">Backup to local</string>
+	<string name="action_db_restorefrom_local">Restore from local</string>
+	<string name="quantity">Quantity:</string>
+	<string name="comment">Comment</string>
+	<string name="comment:"> Comment:</string>
+	<string name="temperature">Temperature</string>
+	<string name="weight">Weight</string>
+	<string name="eat_short">Eat</string>
+	<string name="about_app">About Application</string>
+	<string name="measure">Measure:</string>
+	<string name="crap">Poop</string>
+	<string name="crap_short">Poo</string>
+	<string name="goto_stat">Go to Statistic   --></string>
+	<string name="pees">Pees</string>
+	<string name="pees_short">Pee</string>
+	<string name="items_only">\"Is not possible to show chart for this category\"</string>
+	<string name="temperature_short">°C</string>
+	<string name="weight_short">Wei</string>
+	<string name="comment_short">Com</string>
+	<string name="today">Today</string>
+	<string name="yesterday">Yesterday</string>
+	<string name="early">Early</string>
+	<string name="exit">Exit</string>
+	<string name="save">SAVE</string>
+	<string name="cancel">CANCEL</string>
+	<string name="child_weight">Child Weight</string>
+	<string name="set_weight_msg">Please, set weight!</string>
+	<string name="eat_quantity">Quantity of eat:</string>
+	<string name="eat_quantity_short">Eat quantity\n</string>
+	<string name="child_eat">Lactation</string>
+	<string name="sel_other_interval">No Events! Please, select other calendar interval.</string>
+	<string name="interstitial_ad_unit_id_test_device1">CE7756999C150D636123D769C50AC9DA</string>
+    <string name="interstitial_ad_unit_id_test_device2">5C2B95F7DCCE3793A41992A59E1456DF</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id_release">ca-app-pub-6280484376720356/8007582622</string>
+	<string name="load_interstitial">Load Interstitial</string>
+	<string name="settimer">Timer for next \nlactation</string>
+	<string name="ok">OK</string>
+	<string name="lact_alarm">Lactation Alarm!</string>
+	<string name="lact_alarm_str">Please, feed the baby!</string>
+	<string name="notneed">not need</string>
+	<string name="exit_msg">Do you really want to exit?</string>
+	<string name="delete_item">Delete Item</string>
+	<string name="delete_item_msg">Are you sure you want to delete this item?</string>
+	<string name="empty_category">This category is empty!</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+	<string name="subject_for_sharing">Hi! I would like to recommend you this app!</string>
+	<string name="share">Share with friends</string>
+	<string name="googleplay_url">https://play.google.com/store/apps/details?id=com.baby.observer&amp;hl=en</string>
+	<string name="event">Event</string>
+	<string name="statistic">Statistic</string>
+
+
+
+
+</resources>

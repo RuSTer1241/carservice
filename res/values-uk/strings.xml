@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Baby Observer</string>
+	<string name="action_chart">Графік</string>
+	<string name="action_list">Список</string>
+	<string name="action_measure_unit">Одиниці виміру</string>
+	<string name="action_db_backup">Зберегти локально</string>
+	<string name="quantity">Об\'єм:</string>
+	<string name="comment">Коментар</string>
+	<string name="comment:"> Коментар:</string>
+	<string name="temperature">Температура</string>
+	<string name="weight">Вага</string>
+	<string name="eat_short">Їжа</string>
+	<string name="about_app">Про Додаток</string>
+	<string name="measure">Вимір:</string>
+	<string name="crap">По великому</string>
+	<string name="crap_short">По вел.</string>
+	<string name="goto_stat">До статистики   --></string>
+	<string name="pees">По маленькому</string>
+	<string name="pees_short">По мал.</string>
+	<string name="items_only">\"Неможливо показати графік для цієї категорії\"</string>
+	<string name="temperature_short">°C</string>
+	<string name="weight_short">Вага</string>
+	<string name="comment_short">Ком</string>
+	<string name="today">Сьогодні</string>
+	<string name="yesterday">Вчора</string>
+	<string name="early">Раніше</string>
+	<string name="exit">Вихід</string>
+	<string name="save">Зберегти</string>
+	<string name="cancel">Відмінити</string>
+	<string name="child_weight">Вага дитини</string>
+	<string name="set_weight_msg">Будь-ласка, введіть вагу!</string>
+	<string name="eat_quantity">Кількість їжі:</string>
+	<string name="eat_quantity_short">Об\'єм\n</string>
+	<string name="child_eat">Годування</string>
+	<string name="sel_other_interval">Немає подій! Виберіть інший інтервал пошуку.</string>
+	<string name="settimer">Таймер до наступ.  \nгодування</string>
+	<string name="lact_alarm">Час годування!</string>
+	<string name="lact_alarm_str">Будь-ласка, нагодуйте дитину!</string>
+	<string name="notneed">без таймера</string>
+	<string name="exit_msg">Ви дійсно хочете вийти?</string>
+	<string name="delete_item">Видалити подію</string>
+	<string name="delete_item_msg">Ви впевнені, що хочете видалити цю подію?</string>
+    <string name="from">Від</string>
+    <string name="to">До</string>
+	<string name="empty_category">Ця категорія пуста!</string>
+	<string name="subject_for_sharing">Привіт! Я б хотіла(в) поділитись з Вами цим додатком!</string>
+	<string name="share">Поділись з друзями</string>
+	<string name="googleplay_url">https://play.google.com/store/apps/details?id=com.baby.observer&amp;hl=uk</string>
+	<string name="event">Подія</string>
+	<string name="statistic">Статистика</string>
+
+</resources>

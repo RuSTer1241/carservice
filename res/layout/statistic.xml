@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<TabHost
+		android:id="@android:id/tabhost"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<FrameLayout
+				android:id="@android:id/tabcontent"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1">
+
+				<TextView
+					android:id="@+id/tvTab1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:drawableBottom="@color/eat_color"
+					android:drawablePadding="5dp"></TextView>
+
+				<TextView
+					android:id="@+id/tvTab2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+
+				<TextView
+					android:id="@+id/tvTab3"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+
+				<TextView
+					android:id="@+id/tvTab4"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+
+				<TextView
+					android:id="@+id/tvTab5"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<TextView
+					android:id="@+id/tvTab6"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+			</FrameLayout>
+
+			<TabWidget
+				android:id="@android:id/tabs"
+				android:layout_width="match_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="9"></TabWidget>
+		</LinearLayout>
+	</TabHost>
+
+	<car.simple.service.widget.searchslider.SearchSlider
+        xmlns:test="http://schemas.android.com/apk/res/com.baby.observer"
+		android:id="@+id/slider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		test:direction="topToBottom"
+		test:content="@+id/search_layout"
+		test:handle="@+id/handle"
+		test:allowSingleTap="true"
+		android:layout_alignParentTop="true">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/search_layout"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:background="@color/main_base_color">
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/from_date_layout"
+			android:orientation="horizontal">
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/from_text_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/from"
+					android:layout_marginTop="@dimen/dimen_3dp_h"
+					android:layout_marginLeft="6dp"
+					android:textColor="@color/white"/>
+
+				<TextView
+					android:id="@+id/from_date_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:textColor="@color/white"/>
+			</LinearLayout>
+
+			<ImageView
+				android:id="@+id/from_date_but"
+				android:layout_width="wrap_content"
+				android:layout_height="50dp"
+				android:src="@drawable/calendar_but_sel"
+				android:layout_marginTop="@dimen/dimen_3dp_h"
+				android:layout_marginBottom="@dimen/dimen_2dp_h"
+				android:layout_marginLeft="@dimen/dimen_5dp_w"/>
+		</LinearLayout>
+
+		<ImageView
+			android:id="@+id/divider"
+			android:layout_width="wrap_content"
+			android:layout_height="50dp"
+			android:layout_marginRight="@dimen/dimen_20dp_w"
+			android:layout_marginLeft="@dimen/dimen_20dp_h"
+			android:src="@drawable/cal_divider"
+			android:layout_marginTop="@dimen/dimen_1dp_h"
+			android:layout_marginBottom="@dimen/dimen_1dp_h"/>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/to_date_layout"
+			android:orientation="horizontal">
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/to_text_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/to"
+					android:layout_marginTop="@dimen/dimen_3dp_h"
+					android:layout_marginLeft="6dp"
+					android:textColor="@color/white"/>
+
+				<TextView
+					android:id="@+id/to_date_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:hint="To"
+					android:textColor="@color/white"/>
+			</LinearLayout>
+
+			<ImageView
+				android:id="@+id/to_date_but"
+				android:layout_width="wrap_content"
+				android:layout_height="50dp"
+				android:src="@drawable/calendar_but_sel"
+				android:layout_marginTop="@dimen/dimen_3dp_h"
+				android:layout_marginBottom="@dimen/dimen_2dp_h"
+				android:layout_marginLeft="@dimen/dimen_5dp_w"/>
+		</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/transparent"
+			android:orientation="vertical">
+
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="2dp"
+				android:background="@color/main_base_color"/>
+
+			<ImageView
+				android:id="@+id/slide_search_image"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:src="@drawable/slidearrow_down"/>
+		</LinearLayout>
+
+	</car.simple.service.widget.searchslider.SearchSlider>
+</FrameLayout>

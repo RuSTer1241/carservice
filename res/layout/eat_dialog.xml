@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_centerInParent="true"
+	>
+
+
+	<TextView
+	android:id="@+id/comment_view"
+	android:layout_width="match_parent"
+	android:layout_height="50dp"
+	android:text="Please, add comment:"
+	android:textSize="22sp"
+	android:layout_marginTop="5dp"
+	>
+</TextView>
+
+	<EditText
+		android:id="@+id/comment_edit_text"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:layout_below="@id/comment_view"
+		android:singleLine="true"
+		>
+		</EditText>
+	<Button
+		android:id="@+id/cancel"
+		android:layout_width="100dp"
+		android:layout_height="50dp"
+		android:layout_margin="1dp"
+		android:layout_below="@+id/comment_edit_text"
+		android:background="@color/dark_blue"
+		android:text="@string/cancel"/>
+
+	<Button
+		android:id="@+id/save"
+		android:layout_width="100dp"
+		android:layout_height="50dp"
+		android:layout_margin="1dp"
+
+		android:layout_below="@+id/comment_edit_text"
+		android:layout_alignParentRight="true"
+		android:text="@string/save"
+		android:background="@color/dark_blue"/>
+
+	</RelativeLayout>

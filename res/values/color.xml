@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="orange">#ff5500</color>
+	<!--<color name="white">#ffffff</color>-->
+
+	<!--<color name="eat_color">#19C819</color>-->
+    <color name="eat_color">#19C819</color>
+	<color name="crap_color">#7D4618</color>
+	<color name="pee_color">#F3E525</color>
+	<color name="temperature_color">#FA858E</color>
+	<color name="weight_color">#59D2D2</color>
+	<color name="comment_color">#a3a3a3</color>
+	<color name="transparent">#00000000</color>
+
+	<color name="main_base_color">#055FF8</color>
+	<color name="dark_blue">#0325B1</color>
+
+	<color name="dialog_base_color">#87CEFA</color>
+	<color name="dialog_button_color">#87CEFA</color>
+	<color name="listfragment_background">#C0C0C0</color>
+
+	<color name="font_base_color">#292929</color>
+	<color name="white">#ffffff</color>
+	<color name="black">#000000</color>
+	<color name="font_dim_color">#a3a3a3</color>
+
+</resources>

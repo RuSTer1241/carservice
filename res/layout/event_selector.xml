@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<TextView
+		android:id="@+id/select_event"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="5"
+		android:text="Select Event:"
+		android:textSize="16sp"
+		android:textColor="@color/main_base_color"
+		>
+	</TextView>
+
+	<Spinner
+		android:id="@+id/event_spinner"
+		style="@style/TestSpinnerStyle"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="5"
+		android:background="@color/main_base_color"
+		android:spinnerMode="dropdown"
+		/>
+</LinearLayout>
