@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.simple.service"
+	package="com.car.service"
 	android:versionCode="90"
 	android:versionName="0.0.9">
 
@@ -12,7 +12,7 @@
 	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
 
 	<application
-		android:name="car.simple.service.model.CarServiceApplication"
+		android:name="com.car.service.model.CarServiceApplication"
 		android:icon="@drawable/icon"
 		android:label="@string/app_name"
 		android:theme="@style/HoloCustomTheme">
@@ -22,7 +22,7 @@
 		android:value="@integer/google_play_services_version"/>
 
 		<activity
-			android:name="car.simple.service.MyActivity"
+			android:name="com.car.service.MyActivity"
 			android:label="@string/app_name"
 			android:screenOrientation="portrait"
 			android:configChanges="keyboardHidden|orientation|screenSize">
@@ -32,20 +32,20 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name="car.simple.service.Statistic"
+			android:name="com.car.service.Statistic"
 			android:screenOrientation="portrait"
 			android:configChanges="keyboardHidden|orientation|screenSize"/>
-		<activity android:name="car.simple.service.OptionMenuActivity"/>
+		<activity android:name="com.car.service.OptionMenuActivity"/>
 		<activity
 			android:name="com.google.android.gms.ads.AdActivity"
 			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 		<activity
-			android:name="car.simple.service.alarms.AlertDialogActivity"
+			android:name="com.car.service.alarms.AlertDialogActivity"
 			android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
 			android:screenOrientation="portrait"
 			android:configChanges="keyboardHidden|orientation|screenSize"/>
 		<receiver
-			android:name="car.simple.service.alarms.AlarmReceiver">
+			android:name="com.car.service.alarms.AlarmReceiver">
 
 			</receiver>
 	</application>
