@@ -11,7 +11,7 @@ import com.car.service.utils.WLog;
 public class AdvertiseThread extends  Thread {
 	Handler handler;
 	private boolean pause=true;
-    private final long  ADVERTIZEMENT_TIMEDELAY=120; //second
+    private final long  ADVERTIZEMENT_TIMEDELAY=1200; //second
 
 	public AdvertiseThread( Handler handler) {
 

@@ -77,13 +77,8 @@ public class ListItemFragment extends BaseFragment implements	ListScrollListener
 	 * if user scroll down ---- load new items by parts (30 items for one time)
 	 */
 	 public void changeContent(int type,long startTime){
-		/* if(type==ActionBaseDialog.HARDCODED_EVENTS_NUM){
-			 FragmentTransaction ft = getFragmentManager().beginTransaction();
-			 DialogFragment newFragment = new EventListDialog(controller);
-			 newFragment.show(ft, "Event Dialog");
-		 }else {*/
 			 CarServiceApplication.getDbEngine().dbReadRequest(DbEngine.Mode.LIST, type, startTime, controller);
-		 //}
+
 	 }
 
 	public void setContent(int type){

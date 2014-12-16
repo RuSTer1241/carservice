@@ -13,10 +13,10 @@
 	<string name="eat_short">Еда</string>
 	<string name="about_app">О приложении</string>
 	<string name="measure">Измерение:</string>
-	<string name="crap">По большому</string>
+	<string name="admin">По большому</string>
 	<string name="crap_short">По бол.</string>
 	<string name="goto_stat">К статистике   --></string>
-	<string name="pees">По маленькому</string>
+	<string name="fuel">По маленькому</string>
 	<string name="pees_short">По мал.</string>
 	<string name="items_only">\"Невозможно показать график для этой категории\"</string>
 	<string name="temperature_short">°C</string>
@@ -31,8 +31,8 @@
 	<string name="child_weight">Вес ребенка</string>
 	<string name="set_weight_msg">Пожалуйста, выберите вес!</string>
 	<string name="eat_quantity">Количество еды</string>
-	<string name="eat_quantity_short">Объем</string>
-	<string name="child_eat">Кормление</string>
+	<string name="component">Объем</string>
+	<string name="service">Кормление</string>
 	<string name="sel_other_interval">Нет событий! Выберите другой интервал поиска</string>
 	<string name="settimer">Таймер до след.\n кормления</string>
 	<string name="lact_alarm">Время кормления!</string>

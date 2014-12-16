@@ -31,7 +31,6 @@ public class OptionMenuActivity extends Activity {
 		prefEditor = CarServiceApplication.getPrefEditor();
 		CarServiceApplication.setActivityContext(this);
 		WLog.d(LOG_TAG, "onCreate " + this.toString());
-
 		mActionBar = getActionBar();
 		mActionBar.setDisplayShowHomeEnabled(false);
 		mActionBar.setDisplayShowTitleEnabled(false);

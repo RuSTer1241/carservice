@@ -8,16 +8,16 @@
 	<string name="action_db_restorefrom_local">Restore from local</string>
 	<string name="quantity">Quantity:</string>
 	<string name="comment">Comment</string>
-	<string name="comment:"> Comment:</string>
+	<string name="comment1"> Comment:</string>
 	<string name="temperature">Temperature</string>
 	<string name="weight">Weight</string>
 	<string name="eat_short">Eat</string>
 	<string name="about_app">About Application</string>
 	<string name="measure">Measure:</string>
-	<string name="crap">Poop</string>
+	<string name="admin">Administrative</string>
 	<string name="crap_short">Poo</string>
 	<string name="goto_stat">Go to Statistic   --></string>
-	<string name="pees">Pees</string>
+	<string name="fuel">Fuel</string>
 	<string name="pees_short">Pee</string>
 	<string name="items_only">\"Is not possible to show chart for this category\"</string>
 	<string name="temperature_short">°C</string>
@@ -32,15 +32,15 @@
 	<string name="child_weight">Child Weight</string>
 	<string name="set_weight_msg">Please, set weight!</string>
 	<string name="eat_quantity">Quantity of eat:</string>
-	<string name="eat_quantity_short">Eat quantity\n</string>
-	<string name="child_eat">Lactation</string>
+	<string name="component">Component\n</string>
+	<string name="service">Service</string>
 	<string name="sel_other_interval">No Events! Please, select other calendar interval.</string>
 	<string name="interstitial_ad_unit_id_test_device1">CE7756999C150D636123D769C50AC9DA</string>
     <string name="interstitial_ad_unit_id_test_device2">5C2B95F7DCCE3793A41992A59E1456DF</string>
     <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="banner_ad_unit_id_release">ca-app-pub-6280484376720356/8007582622</string>
 	<string name="load_interstitial">Load Interstitial</string>
-	<string name="settimer">Timer for next \nlactation</string>
+	<string name="settimer">Timer for next \nservice</string>
 	<string name="ok">OK</string>
 	<string name="lact_alarm">Lactation Alarm!</string>
 	<string name="lact_alarm_str">Please, feed the baby!</string>
@@ -56,6 +56,7 @@
 	<string name="googleplay_url">https://play.google.com/store/apps/details?id=com.car.service&amp;hl=en</string>
 	<string name="event">Event</string>
 	<string name="statistic">Statistic</string>
+	<string name="price">Price:</string>
 
 
 

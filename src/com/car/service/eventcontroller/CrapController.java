@@ -16,7 +16,7 @@ public class CrapController extends EventController {
 
 	public CrapController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout) {
 		super(activity, titleLayout, commentLayout);
-		setTitle(activity.getResources().getString(R.string.crap));
+		setTitle(activity.getResources().getString(R.string.admin));
 		setTitleImage(R.drawable.crap_dialogtitle);
 	}
 

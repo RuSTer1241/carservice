@@ -9,7 +9,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_weight="5"
-		android:text="@string/comment:"
+		android:text="@string/comment1"
 		android:textSize="16sp"
 		android:textColor="@color/main_base_color"
 		>
@@ -17,6 +17,28 @@
 
 	<EditText
 		android:id="@+id/comment_edit_text"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:singleLine="true"
+		android:layout_weight="5"
+		android:minWidth="300dp"
+		android:inputType="textNoSuggestions"
+
+		>
+	</EditText>
+	<TextView
+		android:id="@+id/price_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="5"
+		android:text="@string/price"
+		android:textSize="16sp"
+		android:textColor="@color/main_base_color"
+		>
+	</TextView>
+
+	<EditText
+		android:id="@+id/price_edit_text"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:singleLine="true"

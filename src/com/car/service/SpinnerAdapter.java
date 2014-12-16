@@ -1,6 +1,7 @@
 package com.car.service;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,10 @@ import android.widget.TextView;
  */
 	public class SpinnerAdapter extends ArrayAdapter<String>
 	{
-		private Activity context;
+		private Context context;
 		String[] data = null;
 
-		public SpinnerAdapter(Activity context, int resource, String[] data)
+		public SpinnerAdapter(Context context, int resource, String[] data)
 		{
 			super(context, resource, data);
 			this.context = context;

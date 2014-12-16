@@ -3,6 +3,8 @@
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:layout_gravity="center"
+	android:gravity="center"
 	android:background="@drawable/mainshape">
 
 
@@ -14,6 +16,7 @@
 		android:layout_height="wrap_content"
 		android:padding="4dp"
 		android:layout_gravity="center"
+
 		>
 
 		<ImageView
@@ -21,20 +24,20 @@
 			android:layout_width="@dimen/dimen_150dp_w"
 			android:layout_height="@dimen/dimen_150dp_h"
 
-			android:src="@drawable/eat_button_sel"
-			android:background="@drawable/eat_but_background_sel"
+			android:src="@drawable/service_button_sel"
+			android:background="@drawable/service_but_background_sel"
 			android:padding="45dp"
 			android:layout_margin="2dp"
-			android:text="@string/child_eat"/>
+			android:text="@string/service"/>
 
 		<ImageView
 			android:id="@+id/fuel_but"
-			android:text="@string/pees"
+			android:text="@string/fuel"
 			android:layout_width="@dimen/dimen_150dp_w"
 			android:layout_height="@dimen/dimen_150dp_h"
 
-			android:src="@drawable/fuel_but_sel"
-			android:background="@drawable/fuel_but_background_sel"
+			android:src="@drawable/gas_but_sel"
+			android:background="@drawable/gas_but_background_sel"
 			android:padding="45dp"
 			android:layout_marginLeft="2dp"
 			android:layout_marginRight="2dp"
@@ -54,7 +57,7 @@
 
 		<ImageView
 			android:id="@+id/admin_but"
-			android:text="@string/crap"
+			android:text="@string/admin"
 			android:layout_width="@dimen/dimen_150dp_w"
 			android:layout_height="@dimen/dimen_150dp_h"
 			android:src="@drawable/admin_but_sel"

@@ -15,7 +15,7 @@ import com.car.service.utils.WLog;
 public class PeeController extends EventController {
 	public PeeController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout) {
 		super(activity, titleLayout, commentLayout);
-		setTitle(activity.getResources().getString(R.string.pees));
+		setTitle(activity.getResources().getString(R.string.fuel));
 		setTitleImage(R.drawable.pee_dialogtitle);
 	}
 

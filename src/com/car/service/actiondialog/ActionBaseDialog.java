@@ -26,7 +26,7 @@ public class ActionBaseDialog extends DialogFragment {
 
 	DbEngine engine;
 	LinearLayout q_area;
-	LinearLayout c_area;
+	LinearLayout cprice_area;
 	RelativeLayout b_area;
 	RelativeLayout title_area;
 	TextView title;
@@ -63,7 +63,7 @@ public class ActionBaseDialog extends DialogFragment {
 		getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 		title_area=(RelativeLayout)v.findViewById(R.id.title_area);
 		q_area=(LinearLayout)v.findViewById(R.id.quantity_area);
-		c_area=(LinearLayout)v.findViewById(R.id.comment_area);
+		cprice_area =(LinearLayout)v.findViewById(R.id.comment_price_area);
 		b_area=(RelativeLayout)v.findViewById(R.id.button_area);
 
 		title=(TextView)v.findViewById(R.id.title);

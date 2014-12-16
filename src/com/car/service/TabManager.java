@@ -28,14 +28,14 @@ public class TabManager {
 		host.addTab(spec);
 		host.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.eat_tab_sel);
 
-        spec = host.newTabSpec(context.getResources().getString(R.string.crap));
+        spec = host.newTabSpec(context.getResources().getString(R.string.admin));
         spec.setContent(R.id.tvTab2);
         spec.setIndicator(context.getResources().getString(R.string.crap_short));
         host.addTab(spec);
         host.getTabWidget().getChildAt(1).setBackgroundResource(R.drawable.crap_tab_sel);
 
 
-        spec = host.newTabSpec(context.getResources().getString(R.string.pees));
+        spec = host.newTabSpec(context.getResources().getString(R.string.fuel));
 		spec.setContent(R.id.tvTab3);
 		spec.setIndicator(context.getResources().getString(R.string.pees_short));
 		host.addTab(spec);

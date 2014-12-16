@@ -54,13 +54,8 @@ public class Statistic extends OptionMenuActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.statistic);
-
 		mActionBar.setCustomView(actionBarCustomView);
 		mActionBar.setDisplayShowCustomEnabled(true);
-
-
-
-
 		prefEditor = CarServiceApplication.getPrefEditor();
 		searchView=(SearchSlider)findViewById(R.id.slider);
         searchController=new SearchController(this,searchView,prefEditor.getLaunch());
