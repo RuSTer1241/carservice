@@ -106,11 +106,11 @@ public class ServiceWorksAdapter extends BaseAdapter {
 	}
 
 	public void setPriceListener(final PriceChangeListener priceListener) {
-		this.priceListener = priceListener;
-	}
-	public interface PriceChangeListener{
-		public void priceUpdate();
-	}
+			this.priceListener = priceListener;
+		}
+		public interface PriceChangeListener{
+			public void priceUpdate();
+		}
 
 }
 

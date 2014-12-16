@@ -13,17 +13,16 @@ import java.util.List;
 public class ServiceItemsController implements ServiceWorksAdapter.PriceChangeListener {
 	private String TAG = getClass().getSimpleName();
 	private TextView sum_price;
-    private PriceController priceController;
+    //private PriceController priceController;
 	private String [] itemNames;
 	private List<ServiceWorkItemModel> values = new ArrayList<ServiceWorkItemModel>();
 	private ServiceWorksAdapter worksAdapter;
 	private Activity context;
 	private double price;
 
-	public ServiceItemsController(Activity context, TextView sum_price,PriceController priceController) {
+	public ServiceItemsController(Activity context, TextView sum_price) {
 		this.context=context;
 		this.sum_price=sum_price;
-		this.priceController=priceController;
 		itemNames= ConfigInfo.service_works;
 		for (int i=0;i<itemNames.length;i++) {
 			this.values.add(new ServiceWorkItemModel(i,itemNames[i]));
@@ -37,21 +36,15 @@ public class ServiceItemsController implements ServiceWorksAdapter.PriceChangeLi
 		return worksAdapter;
 	}
 
-
-	private void priceCalculate(){
+	@Override
+	public void priceUpdate() {
 		price=0;
 		for(ServiceWorkItemModel item: values){
 			if(item.isChecked()){
 				price+=item.getPrice();
 			}
 		}
-		priceController.setItemsPrice(price);
 		sum_price.setText(String.valueOf(price));
-	}
-
-	@Override
-	public void priceUpdate() {
-		priceCalculate();
 	}
 
 	public void clear(){

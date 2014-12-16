@@ -7,15 +7,15 @@
 	>
 	<LinearLayout
 		android:id="@+id/eat_quantity_area"
-		android:orientation="vertical"
-		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
 		android:weightSum="4"
 		>
 		<TextView
 			android:id="@+id/quantity_view"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="2"
 			android:text="@string/component"
@@ -25,44 +25,15 @@
 		</TextView>
 		<TextView
 			android:id="@+id/service_works_but"
-			android:text="list of works"
+			android:text="Services List"
 			android:textColor="@color/white"
-			android:layout_width="wrap_content"
-			android:layout_height="@dimen/dimen_25dp_h"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/dimen_30dp_h"
 			android:background="@color/main_base_color"
 			android:layout_weight="2"
-			android:paddingLeft="@dimen/dimen_2dp_w"
-			android:paddingRight="@dimen/dimen_2dp_w"
+			android:paddingLeft="@dimen/dimen_4dp_w"
+			android:paddingRight="@dimen/dimen_4dp_w"
 			/>
 
-	</LinearLayout>
-	<LinearLayout
-		android:id="@+id/eat_timer_area"
-		android:orientation="vertical"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-		android:weightSum="4"
-		>
-		<TextView
-			android:id="@+id/set_timer_text"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_weight="2"
-			android:text="@string/settimer"
-			android:textSize="16sp"
-			android:textColor="@color/main_base_color"
-
-			>
-		</TextView>
-		<Spinner
-			android:id="@+id/timer_spinner"
-			style="@style/TestSpinnerStyle"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_weight="2"
-			android:spinnerMode="dropdown"
-			android:background="@color/main_base_color"
-			/>
 	</LinearLayout>
 </RelativeLayout>

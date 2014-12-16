@@ -32,7 +32,7 @@
 	<string name="child_weight">Child Weight</string>
 	<string name="set_weight_msg">Please, set weight!</string>
 	<string name="eat_quantity">Quantity of eat:</string>
-	<string name="component">Component\n</string>
+	<string name="component">Select item: </string>
 	<string name="service">Service</string>
 	<string name="sel_other_interval">No Events! Please, select other calendar interval.</string>
 	<string name="interstitial_ad_unit_id_test_device1">CE7756999C150D636123D769C50AC9DA</string>

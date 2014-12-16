@@ -9,48 +9,32 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.car.service.PriceController;
 import com.car.service.R;
 import com.car.service.ServiceWorksDialog;
-import com.car.service.alarms.AlarmController;
+
+import java.io.Serializable;
 
 /**
  * Created by r.savuschuk on 11/20/2014.
  */
-public class CarServiceController extends EventController implements PriceController.OnPriceChangedListener
+public class CarServiceController extends EventController implements ServiceWorksDialog.OnDialogDataSavedListener,Serializable
 
 {
 	private String TAG = getClass().getSimpleName();
 	Activity activity;
-	AlarmController timerController;
 	DialogFragment newFragment;
-	PriceController priceController;
 	private TextView service_works;
 	private EditText sum_price;
-
-	private final int TSIZE = 25;
-
-	String[] t_data = new String[TSIZE];
-
 
 	public CarServiceController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout, LinearLayout mainLayout) {
 		super(activity, titleLayout, commentLayout);
 		this.activity=activity;
-		timerController = AlarmController.getInstance(activity);
-		timerController.сancelAlarm();//cancel previous alarm
 		title.setText(activity.getResources().getString(R.string.service));
 		titleImage.setImageResource(R.drawable.eat_bottle_dialogtitle);
-		priceController=new PriceController();
-		priceController.setListener(this);
 		service_works =(TextView)mainLayout.findViewById(R.id.service_works_but);
 		service_works.setOnClickListener(serviceWorksButOnClickListener);
 		sum_price=(EditText)commentLayout.findViewById(R.id.price_edit_text);
-		sum_price.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-			@Override
-			public void onFocusChange(final View view, final boolean b) {
-				priceController.setItemsPrice(Double.valueOf(sum_price.getText().toString()));
-			}
-		});
+
 	}
 
 	View.OnClickListener serviceWorksButOnClickListener = new View.OnClickListener() {
@@ -58,8 +42,9 @@ public class CarServiceController extends EventController implements PriceContro
 			FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
 			// Create and show the dialog.
 			newFragment = new ServiceWorksDialog();
+
 			Bundle args = new Bundle();
-			args.putSerializable("PriceController",priceController);
+			args.putSerializable("CarServiceController",CarServiceController.this);
 			newFragment.setArguments(args);
 			newFragment.show(ft, "ServiceComponents Dialog");
 		}
@@ -91,12 +76,10 @@ public class CarServiceController extends EventController implements PriceContro
 	}
 
 	@Override
-	public void onPriceChanged(final String price) {
+	public void onDataSaved(final String price) {
 		sum_price.setText(price);
 	}
 
-	public void clear(){
-		priceController.setListener(null);
-	}
+
 
 }

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.car.service.database.DbEngine;
+import com.car.service.eventcontroller.CarServiceController;
 import com.car.service.model.CarServiceApplication;
 
 /**
@@ -25,7 +26,8 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 	Button saveButton;
 	Button cancelButton;
 	ServiceItemsController worksItemController;
-	private PriceController priceController;
+	private CarServiceController carServiceController;
+
 
 	@Override
 	public void onDestroyView() {
@@ -38,10 +40,10 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 		engine= CarServiceApplication.getDbEngine();
 		activityContext=getActivity().getBaseContext();
 		try {
-			priceController = (PriceController)getArguments().getSerializable("PriceController");
+			carServiceController = (CarServiceController)getArguments().getSerializable("CarServiceController");
 		}
 		catch (final ClassCastException e) {
-			throw new ClassCastException(this.toString() + " must transfer PriceController object");
+			throw new ClassCastException(this.toString() + " must transfer CarServiceController object");
 		}
 
 
@@ -59,12 +61,9 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 		cancelButton = (Button) v.findViewById(R.id.serv_cancel);
 		cancelButton.setOnClickListener(this);
 		sum_price=(TextView)v.findViewById(R.id.serv_summary_price);
-		worksItemController=new ServiceItemsController(this.getActivity(),sum_price,priceController);
+		worksItemController=new ServiceItemsController(this.getActivity(),sum_price);
 		listview = (ListView)v.findViewById(R.id.service_component_list);
 		listview.setAdapter(worksItemController.getWorksAdapter());
-
-
-
 		return v;
 	}
 
@@ -72,18 +71,21 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 	public void onClick(final View v) {
 
 
-				switch (v.getId()) {
-					case R.id.serv_cancel:
-						dismiss();
-						break;
-					case R.id.serv_save:
-                            worksItemController.clear();
-							dismiss();
+		switch (v.getId()) {
+			case R.id.serv_cancel:
+				dismiss();
+				break;
+			case R.id.serv_save:
+				carServiceController.onDataSaved(sum_price.getText().toString());
+				dismiss();
+				break;
 
-						break;
-				}
+		}
+		worksItemController.clear();
+	}
 
-
+	public interface OnDialogDataSavedListener {
+		void onDataSaved(String price);
 	}
 
 
