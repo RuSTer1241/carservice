@@ -38,9 +38,9 @@ public class EventFactory {
 	public EventController createEvent(int eventKey) {
 		EventController eventController = null;
 		switch (eventKey) {
-			case 0://eat
+			case 0://service
 				main_area.removeAllViewsInLayout();
-				main_area.addView(li.inflate(R.layout.eat_quantity_spinner, container, false));
+				main_area.addView(li.inflate(R.layout.services_list_spinner, container, false));
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
 				eventController = new CarServiceController(activity, title_area, comment_area, main_area);
 				break;

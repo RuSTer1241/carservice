@@ -65,23 +65,23 @@ public class GraphFragment extends BaseFragment implements DbEngine.Callback<Lis
 		graphView.setVisibility(View.VISIBLE);
 		try {//data.get(0) can be zero if db empty
 			switch (data.get(0).getActionType()) {
-				case EAT:
+				case SERVICE:
 					graphView.setTitle(activity.getResources().getString(R.string.eat_short));
 					addSerie(activity.getResources().getColor(R.color.eat_color), graphDataProcessor.initEatData(data));
 					break;
 
-				case TEMPERATURE:
-					graphView.setTitle(activity.getResources().getString(R.string.temperature));
-					addSerie(activity.getResources().getColor(R.color.temperature_color), graphDataProcessor.initTemperatureData(data));
-					break;
-
-				case WEIGHT:
-					String unit_txt = "";
-					if (activity.prefEditor.getMeasureUnit()) unit_txt = " (lb)";
-					else unit_txt = " (kg)";
-					graphView.setTitle(activity.getResources().getString(R.string.weight) + unit_txt);
-					addSerie(activity.getResources().getColor(R.color.weight_color), graphDataProcessor.initWeightData(data));
-					break;
+//				case TEMPERATURE:
+//					graphView.setTitle(activity.getResources().getString(R.string.temperature));
+//					addSerie(activity.getResources().getColor(R.color.temperature_color), graphDataProcessor.initTemperatureData(data));
+//					break;
+//
+//				case WEIGHT:
+//					String unit_txt = "";
+//					if (activity.prefEditor.getMeasureUnit()) unit_txt = " (lb)";
+//					else unit_txt = " (kg)";
+//					graphView.setTitle(activity.getResources().getString(R.string.weight) + unit_txt);
+//					addSerie(activity.getResources().getColor(R.color.weight_color), graphDataProcessor.initWeightData(data));
+//					break;
 			}
 		}catch(IndexOutOfBoundsException e){
 			e.printStackTrace();

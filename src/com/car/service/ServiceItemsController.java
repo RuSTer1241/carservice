@@ -29,7 +29,6 @@ public class ServiceItemsController implements ServiceWorksAdapter.PriceChangeLi
 		}
 		worksAdapter=new ServiceWorksAdapter(context,values);
 		worksAdapter.setPriceListener(this);
-
 	}
 
 	public ServiceWorksAdapter getWorksAdapter() {

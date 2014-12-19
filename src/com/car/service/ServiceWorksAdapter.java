@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.car.service.utils.WLog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,14 +21,13 @@ import java.util.List;
 public class ServiceWorksAdapter extends BaseAdapter {
 	private String TAG = getClass().getSimpleName();
 	private List<ServiceWorkItemModel> dataList;
+
 	private Context context;
 	private PriceChangeListener priceListener;
 
 	public ServiceWorksAdapter(Context context,List<ServiceWorkItemModel> dataList) {
 		this.context = context;
 		this.dataList=dataList;
-
-
 	}
 
 	@Override
@@ -103,6 +103,14 @@ public class ServiceWorksAdapter extends BaseAdapter {
 		TextView textViewFirstLine;
 		EditText workPrice;
 		CheckBox checkBox;
+	}
+	public List<ServiceWorkItemModel> getCheckedItems(){
+		List<ServiceWorkItemModel> checkedDataList=new ArrayList<ServiceWorkItemModel>();
+		for(ServiceWorkItemModel item:dataList){
+			if(item.isChecked())
+				checkedDataList.add(item);
+		}
+      return checkedDataList;
 	}
 
 	public void setPriceListener(final PriceChangeListener priceListener) {

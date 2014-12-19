@@ -9,10 +9,20 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.car.service.R;
+import com.car.service.ServiceWorkItemModel;
 import com.car.service.ServiceWorksDialog;
+import com.car.service.database.DbEngine;
+import com.car.service.database.DbError;
+import com.car.service.utils.WLog;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by r.savuschuk on 11/20/2014.
@@ -25,6 +35,8 @@ public class CarServiceController extends EventController implements ServiceWork
 	DialogFragment newFragment;
 	private TextView service_works;
 	private EditText sum_price;
+	private EditText odometer;
+	String checkedItemsStr;
 
 	public CarServiceController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout, LinearLayout mainLayout) {
 		super(activity, titleLayout, commentLayout);
@@ -34,6 +46,7 @@ public class CarServiceController extends EventController implements ServiceWork
 		service_works =(TextView)mainLayout.findViewById(R.id.service_works_but);
 		service_works.setOnClickListener(serviceWorksButOnClickListener);
 		sum_price=(EditText)commentLayout.findViewById(R.id.price_edit_text);
+		odometer=(EditText)commentLayout.findViewById(R.id.odometr_edit_text);
 
 	}
 
@@ -52,17 +65,11 @@ public class CarServiceController extends EventController implements ServiceWork
 
 	@Override
 	public boolean saveEventToDb() {
-		/*engine
-			.dbWriteRequest(DbEngine.Action.EAT, t_spinner.getSelectedItem().toString(), comment.getText().toString(), new DbEngine.Callback<Long>() {
+		engine.dbWriteRequest(DbEngine.Action.SERVICE, sum_price.getText().toString(), comment.getText().toString(), odometer.getText().toString(),
+			checkedItemsStr, new DbEngine.Callback<Long>() {
 				@Override
 				public void onSuccess(final Long data) {
 					WLog.e("DbEngine", " OnSuccess");
-					prefEditor.saveEatQuantity(t_spinner.getSelectedItemPosition());
-					prefEditor.saveEatTimer(t_spinner.getSelectedItemPosition());
-					long temp = timeParse(t_spinner.getSelectedItem().toString());
-					if (temp > 0) {//set new alarm if time period>0
-						timerController.setAlarm(temp);
-					}
 				}
 
 				@Override
@@ -71,13 +78,32 @@ public class CarServiceController extends EventController implements ServiceWork
 					Toast.makeText(activity, "Database error", Toast.LENGTH_SHORT).show();
 				}
 			});
-*/
+
 		return true;
 	}
 
 	@Override
-	public void onDataSaved(final String price) {
+	public void onDataSaved(final String price, final List<ServiceWorkItemModel> checkedList) {
 		sum_price.setText(price);
+		JSONObject mainobj = new JSONObject();
+		JSONArray array= new JSONArray();
+		try {
+		for (ServiceWorkItemModel item : checkedList) {
+			    JSONObject obj = new JSONObject();
+			    //JSONArray array= new JSONArray();
+			    obj.put("id",item.getId());
+				obj.put("name",item.getWorkName());
+				obj.put("price",item.getPrice());
+			    array.put(obj);
+
+		}
+			mainobj.put("service_list", array);
+
+	} catch (JSONException e) {
+		e.printStackTrace();
+	}
+		checkedItemsStr = mainobj.toString();
+
 	}
 
 

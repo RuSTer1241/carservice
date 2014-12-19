@@ -6,7 +6,7 @@
 	android:background="@color/dialog_base_color">
 
 	<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/service_component_list"
+		android:id="@+id/service_works_list"
 		android:layout_width="wrap_content"
 		android:layout_height="@dimen/dimen_400dp_h"
 		android:clickable="true"

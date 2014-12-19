@@ -7,11 +7,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.car.service.R;
-import com.car.service.database.DbEngine;
-import com.car.service.database.DbError;
 import com.car.service.model.CarServiceApplication;
 import com.car.service.model.PreferenceEditor;
-import com.car.service.utils.WLog;
 import com.car.service.widget.wheel.WheelView;
 import com.car.service.widget.wheel.adapter.ArrayWheelAdapter;
 import com.car.service.widget.wheel.listener.OnWheelChangedListener;
@@ -184,7 +181,7 @@ public class WeightController extends EventController {
 				Toast.makeText(activity, activity.getResources().getString(R.string.set_weight_msg), Toast.LENGTH_SHORT).show();
 				ret = false;
 			} else {
-				engine.dbWriteRequest(DbEngine.Action.WEIGHT, sum, " " + comment.getText().toString(), new DbEngine.Callback<Long>() {
+				/*engine.dbWriteRequest(DbEngine.Action.WEIGHT, sum, " " + comment.getText().toString(), new DbEngine.Callback<Long>() {
 					@Override
 					public void onSuccess(final Long data) {
 						WLog.e("DbEngine", " OnSuccess");
@@ -195,7 +192,7 @@ public class WeightController extends EventController {
 						WLog.e("DbEngine", " OnFail");
 						Toast.makeText(activity, "Database error", Toast.LENGTH_SHORT).show();
 					}
-				});
+				});*/
 				ret = true;
 			}
 		}

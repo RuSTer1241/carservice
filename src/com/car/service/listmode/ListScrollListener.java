@@ -37,7 +37,7 @@ public class ListScrollListener implements AbsListView.OnScrollListener {
 			setScrolled(false);
 			ItemModel item = (ItemModel) lw.getAdapter().getItem(totalItemCount-1);
 			WLog.d(TAG, "Last parameters " + "firstVisibleItem " + firstVisibleItem + " totalItemCount " + totalItemCount + "  visibleItemCount " +  visibleItemCount);
-			WLog.d(TAG, "Last " + "Number " + (totalItemCount-1) + " Data " + item.getDataInt() + " Q: " + item.getQuantity());
+			WLog.d(TAG, "Last " + "Number " + (totalItemCount-1) + " Data " + item.getDataInt() + " Q: " + item.getPrice());
 			listFinishListener.listFinished(item.getDataInt());
 		}
 	}

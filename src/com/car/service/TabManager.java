@@ -55,7 +55,7 @@ public class TabManager {
 		host.addTab(spec);
 		host.getTabWidget().getChildAt(4).setBackgroundResource(R.drawable.weight_tab_sel);
 
-		spec = host.newTabSpec(context.getResources().getString(R.string.comment_));
+		spec = host.newTabSpec(context.getResources().getString(R.string.comment));
 		spec.setContent(R.id.tvTab6);
 		spec.setIndicator(context.getResources().getString(R.string.comment_short));
 		host.addTab(spec);
@@ -68,7 +68,6 @@ public class TabManager {
 			tv.setTextColor(context.getResources().getColor(R.color.white));
 		}
 		host.setCurrentTab(tabId);
-
 	}
 	public int getCurrentGraphTab(){
 		int currentTab=host.getCurrentTab();

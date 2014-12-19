@@ -12,9 +12,12 @@ public class ServiceWorkItemModel {
 	public ServiceWorkItemModel(final int id, final String workName) {
 		this.workName = workName;
 		this.id = id;
-
 	}
-
+	public ServiceWorkItemModel(final int id, final String workName,double price) {
+		this.workName = workName;
+		this.id = id;
+		this.price=price;
+	}
 	public boolean isChecked() {
 		return checked;
 	}
@@ -32,6 +35,9 @@ public class ServiceWorkItemModel {
 	public double getPrice() {
 		return price;
 	}
+	public String getPriceAsStr() {
+		return String.valueOf(price);
+	}
 
 	public void setPrice(final double price) {
 		this.price = price;
@@ -44,6 +50,13 @@ public class ServiceWorkItemModel {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
+
+
+
+
 
 
 

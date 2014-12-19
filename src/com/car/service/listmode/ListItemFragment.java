@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.car.service.R;
 import com.car.service.BaseFragment;
+import com.car.service.R;
 import com.car.service.database.DbEngine;
 import com.car.service.model.CarServiceApplication;
 
@@ -32,7 +32,6 @@ public class ListItemFragment extends BaseFragment implements	ListScrollListener
 		scrollListener=new ListScrollListener();
 		scrollListener.addListFinishListener(this);
 		setContent(activity.prefEditor.loadTabId());
-
 	}
 
 	@Override

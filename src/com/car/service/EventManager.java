@@ -34,7 +34,7 @@ public class EventManager {
 	private void writeDefaultEvents() {
 		JSONObject obj = new JSONObject();
 		try {
-			obj.put("0", "EAT");
+			obj.put("0", "SERVICE");
 			obj.put("1", "CRAP");
 			obj.put("2", "PEE");
 			obj.put("3", "TEMPERATURE");

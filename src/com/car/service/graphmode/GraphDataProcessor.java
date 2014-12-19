@@ -26,7 +26,7 @@ public class GraphDataProcessor {
 	public GraphView.GraphViewData[] initWeightData(List<ItemModel> itemDataList){
 		GraphView.GraphViewData[] vdata= new GraphView.GraphViewData[itemDataList.size()];
 		for(int i=0;i< itemDataList.size();i++){
-			String s= itemDataList.get(i).getQuantity();
+			String s= itemDataList.get(i).getPrice();
 			double weight=0;
 			String re1="(\\d{1,3})";	// Integer Number 1
 			String re2="(.*?)";	// Non-greedy match on filler
@@ -72,7 +72,7 @@ public class GraphDataProcessor {
 		//List<ItemModel> localItemsDataList=engine.getSeparateTypeRows(DbEngine.Action.TEMPERATURE.getValue());
 		GraphView.GraphViewData[] vdata= new GraphView.GraphViewData[itemDataList.size()];
 		for(int i=0;i<itemDataList.size();i++){
-			String s=itemDataList.get(i).getQuantity();
+			String s=itemDataList.get(i).getPrice();
 			float temperature=0;
 			String re1="(\\d+)";	// Integer Number 1
 			String re2=".*?";	// Non-greedy match on filler
@@ -91,7 +91,7 @@ public class GraphDataProcessor {
 	public GraphView.GraphViewData[] initEatData(List<ItemModel> itemDataList){
 		GraphView.GraphViewData[] vdata= new GraphView.GraphViewData[itemDataList.size()];
 		for(int i=0;i< itemDataList.size();i++){
-			String s= itemDataList.get(i).getQuantity();
+			String s= itemDataList.get(i).getPrice();
 			float eat=0;
 			String re1="(\\d+)";	// Integer Number 1
 

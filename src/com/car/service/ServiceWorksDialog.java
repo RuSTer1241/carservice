@@ -10,9 +10,12 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.car.service.database.DbEngine;
 import com.car.service.eventcontroller.CarServiceController;
 import com.car.service.model.CarServiceApplication;
+
+import java.util.List;
 
 /**
  * Created by r.savuschuk on 12/12/2014.
@@ -53,7 +56,7 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 
-		View v = inflater.inflate(R.layout.service_components_dialog, container, false);
+		View v = inflater.inflate(R.layout.service_works_dialog, container, false);
 		getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		saveButton = (Button) v.findViewById(R.id.serv_save);
@@ -62,7 +65,7 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 		cancelButton.setOnClickListener(this);
 		sum_price=(TextView)v.findViewById(R.id.serv_summary_price);
 		worksItemController=new ServiceItemsController(this.getActivity(),sum_price);
-		listview = (ListView)v.findViewById(R.id.service_component_list);
+		listview = (ListView)v.findViewById(R.id.service_works_list);
 		listview.setAdapter(worksItemController.getWorksAdapter());
 		return v;
 	}
@@ -73,19 +76,26 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 
 		switch (v.getId()) {
 			case R.id.serv_cancel:
+				worksItemController.clear();
 				dismiss();
 				break;
 			case R.id.serv_save:
-				carServiceController.onDataSaved(sum_price.getText().toString());
-				dismiss();
+				List<ServiceWorkItemModel> list = worksItemController.getWorksAdapter().getCheckedItems();
+				if (list.size() != 0) {
+					carServiceController.onDataSaved(sum_price.getText().toString(), list);
+					worksItemController.clear();
+					dismiss();
+				}
+				else
+					Toast.makeText(getActivity(), "Please, select Service works before saving", Toast.LENGTH_SHORT).show();
 				break;
 
 		}
-		worksItemController.clear();
+
 	}
 
 	public interface OnDialogDataSavedListener {
-		void onDataSaved(String price);
+		void onDataSaved(String price,List<ServiceWorkItemModel> checkedList);
 	}
 
 

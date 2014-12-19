@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="6dp"
+	android:background="@color/white">
+
+	<ImageView
+		android:id="@+id/item_icon"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_marginRight="8dp"
+		android:focusable="false"
+		android:src="@drawable/service_item"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/dimen_50dp_h"
+		android:layout_toRightOf="@id/item_icon">
+
+		<TextView
+			android:id="@+id/detail_item_name"
+			android:layout_width="fill_parent"
+			android:layout_height="@dimen/dimen_25dp_h"
+			android:layout_weight="1"
+			android:textSize="16sp"
+			android:textColor="@color/font_base_color"/>
+
+		<RelativeLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<TextView
+				android:id="@+id/detail_item_price"
+				android:layout_width="wrap_content"
+				android:layout_height="@dimen/dimen_25dp_h"
+				android:text="Price: "
+				android:textSize="12sp"
+				android:layout_alignParentLeft="true"
+				android:textColor="@color/font_base_color"/>
+		</RelativeLayout>
+	</LinearLayout>
+</RelativeLayout>
