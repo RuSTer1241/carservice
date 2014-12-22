@@ -41,7 +41,7 @@ public class ListModeController implements DbEngine.Callback<List<ItemModel>>, S
 		WLog.e("DbEngine", " OnSuccess");
 		addRows(data);
 		adapter.addValues(itemsDataList);
-		commonPrice.append(String.valueOf(sumPrice));
+		commonPrice.setText("SUMMARY PRICE: "+String.valueOf(sumPrice));
 
 	}
 
