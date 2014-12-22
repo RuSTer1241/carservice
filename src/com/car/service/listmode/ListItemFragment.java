@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.car.service.BaseFragment;
 import com.car.service.R;
 import com.car.service.database.DbEngine;
@@ -21,6 +22,7 @@ public class ListItemFragment extends BaseFragment implements	ListScrollListener
 	private ListView listview;
 	private SwipeDismissListViewTouchListener touchListener;
 	private ListScrollListener scrollListener;
+	TextView commonPrice;
 
 
 
@@ -39,6 +41,8 @@ public class ListItemFragment extends BaseFragment implements	ListScrollListener
 		Bundle savedInstanceState) {
 		View v= inflater.inflate(R.layout.list_item_fragment, null);
 		listview = (ListView)v.findViewById(R.id.listview);
+		commonPrice=(TextView)v.findViewById(R.id.listfr_price_view);
+		controller.setCommonPriceView(commonPrice);
 		initListView();
 		return v;
 	}
@@ -47,14 +51,15 @@ public class ListItemFragment extends BaseFragment implements	ListScrollListener
 	public void onDestroy() {
 		super.onDestroy();
 		scrollListener.removeListFinishListener(this);
+		controller.clear();
 	}
 
 
 
 	@Override
 	public void listFinished(long dataInt) {
-		    if(!controller.isListEmpty())
-		     changeContent(activity.prefEditor.loadTabId(),dataInt);
+		   /* if(!controller.isListEmpty())
+		     changeContent(activity.prefEditor.loadTabId(),dataInt);*/
 	}
 
 	private void  initListView(){

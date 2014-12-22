@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.car.service.R;
 import com.car.service.database.DbEngine;
@@ -17,23 +18,30 @@ import java.util.List;
 /**
  * Created by r.savuschuk on 11/21/2014.
  */
-public class ListModeController implements DbEngine.Callback<List<ItemModel>>, SwipeDismissListViewTouchListener.DismissCallbacks{
+public class ListModeController implements DbEngine.Callback<List<ItemModel>>, SwipeDismissListViewTouchListener.DismissCallbacks {
 	DbEngine engine;
 
 	private ItemBaseAdapter adapter;
 	private List<ItemModel> itemsDataList=new ArrayList<ItemModel>();
 	Activity activity;
+
+	private TextView commonPrice;
 	public ListModeController(Activity activity) {
 		this.activity=activity;
 		engine = CarServiceApplication.getDbEngine();
 		adapter = new ItemBaseAdapter(activity, itemsDataList);//need to init itemdatalist
 
+
+	}
+	public void setCommonPriceView(final TextView commonPrice) {
+		this.commonPrice = commonPrice;
 	}
 	@Override
-	public void onSuccess(final List<ItemModel> data) {
+	public void onSuccess(final List<ItemModel> data,Double sumPrice) {
 		WLog.e("DbEngine", " OnSuccess");
 		addRows(data);
 		adapter.addValues(itemsDataList);
+		commonPrice.append(String.valueOf(sumPrice));
 
 	}
 
@@ -74,6 +82,7 @@ public class ListModeController implements DbEngine.Callback<List<ItemModel>>, S
 
 	}
 
+
 	public ItemBaseAdapter getAdapter() {
 		return adapter;
 	}
@@ -91,6 +100,11 @@ public class ListModeController implements DbEngine.Callback<List<ItemModel>>, S
 			b=true;
 		return b;
 	}
+
+	public void clear(){
+
+	}
+
 
 
 }

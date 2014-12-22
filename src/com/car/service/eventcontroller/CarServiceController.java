@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.car.service.R;
-import com.car.service.ServiceWorkItemModel;
-import com.car.service.ServiceWorksDialog;
+import com.car.service.eventcontroller.carserviceworks.ServiceWorkItemModel;
+import com.car.service.eventcontroller.carserviceworks.ServiceWorksDialog;
 import com.car.service.database.DbEngine;
 import com.car.service.database.DbError;
 import com.car.service.utils.WLog;
@@ -68,7 +68,7 @@ public class CarServiceController extends EventController implements ServiceWork
 		engine.dbWriteRequest(DbEngine.Action.SERVICE, sum_price.getText().toString(), comment.getText().toString(), odometer.getText().toString(),
 			checkedItemsStr, new DbEngine.Callback<Long>() {
 				@Override
-				public void onSuccess(final Long data) {
+				public void onSuccess(final Long data,Double sumPrice) {
 					WLog.e("DbEngine", " OnSuccess");
 				}
 
@@ -95,10 +95,8 @@ public class CarServiceController extends EventController implements ServiceWork
 				obj.put("name",item.getWorkName());
 				obj.put("price",item.getPrice());
 			    array.put(obj);
-
 		}
 			mainobj.put("service_list", array);
-
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}

@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 import android.app.Activity;
 import android.widget.TextView;
@@ -13,8 +13,7 @@ import java.util.List;
 public class ServiceItemsController implements ServiceWorksAdapter.PriceChangeListener {
 	private String TAG = getClass().getSimpleName();
 	private TextView sum_price;
-    //private PriceController priceController;
-	private String [] itemNames;
+   	private String [] itemNames;
 	private List<ServiceWorkItemModel> values = new ArrayList<ServiceWorkItemModel>();
 	private ServiceWorksAdapter worksAdapter;
 	private Activity context;

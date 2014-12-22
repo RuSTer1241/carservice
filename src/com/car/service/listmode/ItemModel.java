@@ -1,6 +1,6 @@
 package com.car.service.listmode;
 
-import com.car.service.ServiceWorkItemModel;
+import com.car.service.eventcontroller.carserviceworks.ServiceWorkItemModel;
 import com.car.service.database.DbEngine;
 import com.car.service.utils.WLog;
 import org.json.JSONArray;
@@ -106,6 +106,12 @@ public class ItemModel {
 
 	public String getPrice() {
 		return price;
+	}
+	public Double getPriceAsDouble() {
+		if(price.equals(""))
+			return 0.0;
+		else
+			return Double.valueOf(price);
 	}
 
 	public void setPrice(final String price) {

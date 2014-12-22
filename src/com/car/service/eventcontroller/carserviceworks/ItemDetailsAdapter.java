@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.car.service.R;
+import com.car.service.eventcontroller.carserviceworks.ServiceWorkItemModel;
 
 import java.util.ArrayList;
 import java.util.List;

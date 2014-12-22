@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 import android.app.DialogFragment;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ListView;
+import com.car.service.R;
 
 import java.util.List;
 

@@ -59,7 +59,7 @@ public class GraphFragment extends BaseFragment implements DbEngine.Callback<Lis
 	}
 
 	@Override
-	public void onSuccess(final List<ItemModel> data) {
+	public void onSuccess(final List<ItemModel> data,Double sumPrice) {
 		WLog.e("DbEngine", " OnSuccess");
 		graphView.removeAllSeries();
 		graphView.setVisibility(View.VISIBLE);

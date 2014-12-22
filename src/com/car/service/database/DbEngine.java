@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.car.service.listmode.ItemModel;
 import com.car.service.model.CarServiceApplication;
+import com.car.service.utils.ConfigInfo;
 import com.car.service.utils.WLog;
 
 import java.io.Serializable;
@@ -30,72 +31,72 @@ public class DbEngine {
 	private ExecutorService pool;
 	private CallbackHandler callbackHandler;
 	private static final int ERROR_VALUE = -1;
-    /*
-    do not change order
-    it will have side effect in previous version user items in DB*/
-        public enum Action {
-            SERVICE(0),
-            FUEL(1),
-            ADMIN(2),
-            COMMENT(3),
-            NULL(255);
-            private final int value;
 
-            Action(int value) {
-                this.value = value;
-            }
+	/*
+	do not change order
+	it will have side effect in previous version user items in DB*/
+	public enum Action {
+		SERVICE(0),
+		FUEL(1),
+		ADMIN(2),
+		COMMENT(3),
+		NULL(255);
+		private final int value;
 
-            public int getValue() {
-                return this.value;
-            }
+		Action(int value) {
+			this.value = value;
+		}
 
-        }
+		public int getValue() {
+			return this.value;
+		}
 
-        public enum Mode {
-            LIST(0),
-            GRAPH(1);
-            private final int value;
+	}
 
-            Mode(int value) {
-                this.value = value;
-            }
+	public enum Mode {
+		LIST(0),
+		GRAPH(1);
+		private final int value;
 
-            public int getValue() {
-                return this.value;
-            }
+		Mode(int value) {
+			this.value = value;
+		}
 
-        }
+		public int getValue() {
+			return this.value;
+		}
 
-        public DbEngine(Context context) {
-            this.context = context;
-            dbHelper = new StatDBHelper(this.context);
-            pool = Executors.newFixedThreadPool(1);
-            callbackHandler = new CallbackHandler();
-        }
+	}
 
-        public interface Callback<T> extends Serializable {
-            void onSuccess(T data);
+	public DbEngine(Context context) {
+		this.context = context;
+		dbHelper = new StatDBHelper(this.context);
+		pool = Executors.newFixedThreadPool(1);
+		callbackHandler = new CallbackHandler();
+	}
 
-            void onFail(DbError error);
-        }
+	public interface Callback<T> extends Serializable {
+		void onSuccess(T data, Double requestSumPrice);
 
-        /*
-            method is for make all database write transactions in separate thread
-            par1 type of item
-            par2 quantity
-            par3 comment
-         */
-	public void dbWriteRequest(final DbEngine.Action type, final String par1, final String par2, final String odometer,final String serviceItems,
-		final Callback<Long>
-		callback) {
+		void onFail(DbError error);
+	}
+
+	/*
+		method is for make all database write transactions in separate thread
+		par1 type of item
+		par2 quantity
+		par3 comment
+	 */
+	public void dbWriteRequest(final DbEngine.Action type, final String par1, final String par2, final String odometer, final String serviceItems,
+		final Callback<Long> callback) {
 		pool.execute(new Runnable() {
 			@Override
 			public void run() {
 				DbAnswer<Integer> rezult = null;
 				switch (type) {
 					case SERVICE:
-						rezult = insertComplexRow(par1, par2,odometer,serviceItems, Action.SERVICE);
-                        //insertTestRows();
+						rezult = insertComplexRow(par1, par2, odometer, serviceItems, Action.SERVICE);
+						//insertTestRows();
 						break;
 					case FUEL:
 						//rezult = insertOnlyCommentRow(par2, Action.KA);
@@ -106,7 +107,6 @@ public class DbEngine {
 					case COMMENT:
 						//rezult = insertComplexRow(par1, par2, Action.TEMPERATURE);
 						break;
-
 				}
 				if (rezult != null) {
 					callbackHandler.sendCallback(callback, rezult);
@@ -138,8 +138,6 @@ public class DbEngine {
 	public void dbReadRequest(final DbEngine.Mode type, final int itemsType, final long time, final Callback<List<ItemModel>> callback) {
 		pool.execute(new Runnable() {
 
-			//List<ItemModel> list;
-
 			@Override
 			public void run() {
 				DbAnswer<List<ItemModel>> rezult = null;
@@ -160,7 +158,7 @@ public class DbEngine {
 		});
 	}
 
-	private DbAnswer insertComplexRow(String price, String comment,String odometer,String checkedItemsStr, Action action) {
+	private DbAnswer insertComplexRow(String price, String comment, String odometer, String checkedItemsStr, Action action) {
 		DbAnswer answer = new DbAnswer();
 		ContentValues cv = new ContentValues();
 		try {
@@ -466,22 +464,23 @@ public class DbEngine {
 	 */
 
 	private DbAnswer getListModeSeparateTypeRows(int type, long finishTime) {
-		WLog.d("ListScrollListener","  DATABASE REQUEST");
+		WLog.d("ListScrollListener", "  DATABASE REQUEST");
 		DbAnswer answer = new DbAnswer();
+		double sumPrice = 0;
 		long startTime = CarServiceApplication.getFromTime();
 		List<ItemModel> itemList = new ArrayList<ItemModel>();
 		try {
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
 			String[] columns = new String[] {StatDBHelper.ActionContentTable.COL_PRIMARY_ID, StatDBHelper.ActionContentTable.COL_ACT_COMMENT,
 				StatDBHelper.ActionContentTable.COL_PRICE, StatDBHelper.ActionContentTable.COL_ACT_TYPE, StatDBHelper.ActionContentTable.COL_DATA,
-				StatDBHelper.ActionContentTable.COL_ODOMETER,StatDBHelper.ActionContentTable.COL_SERVICE_ITEMS
+				StatDBHelper.ActionContentTable.COL_ODOMETER, StatDBHelper.ActionContentTable.COL_SERVICE_ITEMS
 			};
 			String selectionCondition = StatDBHelper.ActionContentTable.COL_ACT_TYPE + "=? AND " +
 				StatDBHelper.ActionContentTable.COL_DATA + " >? AND " +
 				StatDBHelper.ActionContentTable.COL_DATA + " <? ";
 			String[] selectionArgs = new String[] {String.valueOf(type), String.valueOf(startTime), String.valueOf(finishTime)};
 			String orderBy = StatDBHelper.ActionContentTable.COL_DATA + " DESC ";
-			String limit = "30";
+			String limit = ConfigInfo.DB_READITEMLIMIT;
 			Cursor cursor = db.query(StatDBHelper.TABLE_ACTION_LIST, columns, selectionCondition, selectionArgs, null, null, orderBy, limit);
 
 			WLog.e("TEST", "cursor=" + cursor.getCount() + " ");
@@ -501,7 +500,7 @@ public class DbEngine {
 					// получаем значения по номерам столбцов и пишем все в лог
 					String str = cursor.getString(dataColIndex);
 
-				    ItemModel item = new ItemModel();
+					ItemModel item = new ItemModel();
 					item.setId(cursor.getInt(idColIndex));
 					item.setData(cursor.getLong(dataColIndex));
 					item.setPrice(cursor.getString(priceColIndex));
@@ -511,6 +510,7 @@ public class DbEngine {
 					item.setOdometer(cursor.getString(odometerColIndex));
 					itemList.add(item);
 
+					sumPrice += item.getPriceAsDouble();
 					WLog.d("TEST", "ID = " + cursor.getInt(idColIndex) +
 						", type = " + cursor.getString(typeColIndex) +
 						", data = " + cursor.getString(dataColIndex));
@@ -521,6 +521,7 @@ public class DbEngine {
 			} else {
 				WLog.d("TEST", "0 rows");
 			}
+			answer.setAllItemsSumPrice(sumPrice);
 			answer.setData(itemList);
 			cursor.close();
 		} catch (Exception e) {
@@ -553,7 +554,7 @@ public class DbEngine {
 				}
 
 				if (rezult.isSuccess()) {
-					callback.onSuccess(rezult.getData());
+					callback.onSuccess(rezult.getData(), rezult.getAllItemsSumPrice());
 				} else {
 					callback.onFail(rezult.getError());
 				}

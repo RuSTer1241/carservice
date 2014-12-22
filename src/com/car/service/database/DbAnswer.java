@@ -10,6 +10,7 @@ public class DbAnswer<T> implements Serializable {
 
 	private boolean isSuccess;
 	private T data;
+	private Double allItemsSumPrice;
 	private DbError error;
 
 	DbAnswer() {
@@ -40,6 +41,14 @@ public class DbAnswer<T> implements Serializable {
 		this.data = data;
 		isSuccess = true;
 
+	}
+
+	public Double getAllItemsSumPrice() {
+		return allItemsSumPrice;
+	}
+
+	public void setAllItemsSumPrice(final Double allItemsSumPrice) {
+		this.allItemsSumPrice = allItemsSumPrice;
 	}
 
 	public DbError getError() {

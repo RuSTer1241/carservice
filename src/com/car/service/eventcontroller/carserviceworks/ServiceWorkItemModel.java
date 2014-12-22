@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 /**
  * Created by r.savuschuk on 12/12/2014.

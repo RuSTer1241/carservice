@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.car.service.R;
 import com.car.service.utils.WLog;
 
 import java.util.ArrayList;

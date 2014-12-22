@@ -1,4 +1,4 @@
-package com.car.service;
+package com.car.service.eventcontroller.carserviceworks;
 
 import android.app.DialogFragment;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.car.service.R;
 import com.car.service.database.DbEngine;
 import com.car.service.eventcontroller.CarServiceController;
 import com.car.service.model.CarServiceApplication;
