@@ -49,6 +49,7 @@
 			android:background="@color/main_base_color"
 			android:textSize="10sp"
 			android:textColor="@color/font_base_color"
+			android:imeOptions="actionDone"
 			android:inputType="numberDecimal"
 			android:digits="1234567890."/>
 	</RelativeLayout>

@@ -82,7 +82,8 @@ public class ServiceWorksAdapter extends BaseAdapter implements CompoundButton.O
 					mediaModel.setPrice(0);
 				else
 					mediaModel.setPrice(Double.valueOf(holder.workPrice.getText().toString()));
-				priceListener.priceUpdate();
+				if(priceListener!=null)
+					priceListener.priceUpdate();
 			}
 		});
 		return rowView;
