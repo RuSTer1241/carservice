@@ -91,16 +91,16 @@ public class ItemBaseAdapter extends BaseAdapter {
 		holder.textViewFistLine.setText(mediaModel.getData());
 		switch (values.get(position).getActionType()) {
 			case SERVICE:
-				holder.imageView.setImageResource(R.drawable.eat_bottle_item);
+				holder.imageView.setImageResource(R.drawable.service_item64);
 				if (!mediaModel.getPrice().isEmpty()) {
 					holder.textViewSecondLine.setText(activity.getResources().getString(R.string.quantity) + mediaModel.getPrice());
 				}
 				break;
 			case FUEL:
-				holder.imageView.setImageResource(R.drawable.crap_item);
+				holder.imageView.setImageResource(R.drawable.fuel_item64);
 				break;
 			case ADMIN:
-				holder.imageView.setImageResource(R.drawable.pee_item);
+				holder.imageView.setImageResource(R.drawable.admin_item64);
 				break;
 			case COMMENT:
 				holder.imageView.setImageResource(R.drawable.comment_item);

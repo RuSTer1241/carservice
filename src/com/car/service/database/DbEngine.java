@@ -87,7 +87,8 @@ public class DbEngine {
 		par2 quantity
 		par3 comment
 	 */
-	public void dbWriteRequest(final DbEngine.Action type, final String par1, final String par2, final String odometer, final String serviceItems,
+	public void dbWriteRequest(final DbEngine.Action type, final String price, final String comment, final String odometer,
+		final String serviceItems,final String quantity,
 		final Callback<Long> callback) {
 		pool.execute(new Runnable() {
 			@Override
@@ -95,17 +96,17 @@ public class DbEngine {
 				DbAnswer<Integer> rezult = null;
 				switch (type) {
 					case SERVICE:
-						rezult = insertComplexRow(par1, par2, odometer, serviceItems, Action.SERVICE);
+						rezult = insertServiceRow(price, comment, odometer, serviceItems, Action.SERVICE);
 						//insertTestRows();
 						break;
 					case FUEL:
-						//rezult = insertOnlyCommentRow(par2, Action.KA);
+						rezult = insertFuelRow(quantity,price,comment,odometer, type);
 						break;
 					case ADMIN:
 						//rezult = insertOnlyCommentRow(par2, Action.PE);
 						break;
 					case COMMENT:
-						//rezult = insertComplexRow(par1, par2, Action.TEMPERATURE);
+						//rezult = insertServiceRow(par1, par2, Action.TEMPERATURE);
 						break;
 				}
 				if (rezult != null) {
@@ -158,7 +159,7 @@ public class DbEngine {
 		});
 	}
 
-	private DbAnswer insertComplexRow(String price, String comment, String odometer, String checkedItemsStr, Action action) {
+	private DbAnswer insertServiceRow(String price, String comment, String odometer, String checkedItemsStr, Action action) {
 		DbAnswer answer = new DbAnswer();
 		ContentValues cv = new ContentValues();
 		try {
@@ -169,6 +170,36 @@ public class DbEngine {
 			cv.put(StatDBHelper.ActionContentTable.COL_ACT_COMMENT, comment);
 			cv.put(StatDBHelper.ActionContentTable.COL_ODOMETER, odometer);
 			cv.put(StatDBHelper.ActionContentTable.COL_SERVICE_ITEMS, checkedItemsStr);
+			long rowID = db.insert(dbHelper.TABLE_ACTION_LIST, null, cv);
+			if (rowID == -1) {
+				answer.setError(new DbError(DbError.ErrorCode.CANT_SAVE_DATA));
+			} else {
+				answer.setData(rowID);
+			}
+			WLog.e("TEST", "rowID=" + rowID);
+		} catch (Exception e) {
+			answer.setError(new DbError(DbError.ErrorCode.CANT_SAVE_DATA, e.getMessage()));
+			WLog.e(TAG, "Can't save row", e);
+		} finally {
+			if (dbHelper != null) {
+				dbHelper.close();
+			}
+		}
+
+
+		return answer;
+	}
+	private DbAnswer insertFuelRow(String quantity,String price, String comment, String odometer, Action action) {
+		DbAnswer answer = new DbAnswer();
+		ContentValues cv = new ContentValues();
+		try {
+			SQLiteDatabase db = dbHelper.getWritableDatabase();
+			cv.put(StatDBHelper.ActionContentTable.COL_ACT_TYPE, action.value);
+			cv.put(StatDBHelper.ActionContentTable.COL_QUANTITY, quantity);
+			cv.put(StatDBHelper.ActionContentTable.COL_PRICE, price);
+			cv.put(StatDBHelper.ActionContentTable.COL_DATA, getDate());
+			cv.put(StatDBHelper.ActionContentTable.COL_ACT_COMMENT, comment);
+			cv.put(StatDBHelper.ActionContentTable.COL_ODOMETER, odometer);
 			long rowID = db.insert(dbHelper.TABLE_ACTION_LIST, null, cv);
 			if (rowID == -1) {
 				answer.setError(new DbError(DbError.ErrorCode.CANT_SAVE_DATA));

@@ -8,12 +8,12 @@ import com.car.service.R;
 /**
  * Created by r.savuschuk on 11/20/2014.
  */
-public class CrapController extends EventController {
+public class AdminController extends EventController {
 
-	public CrapController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout) {
+	public AdminController(final Activity activity, final RelativeLayout titleLayout, final LinearLayout commentLayout) {
 		super(activity, titleLayout, commentLayout);
 		setTitle(activity.getResources().getString(R.string.admin));
-		setTitleImage(R.drawable.crap_dialogtitle);
+		setTitleImage(R.drawable.admin_dialogtitle);
 	}
 
 	@Override

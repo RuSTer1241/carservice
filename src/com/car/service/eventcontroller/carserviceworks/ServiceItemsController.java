@@ -5,7 +5,6 @@ import android.widget.TextView;
 import com.car.service.utils.ConfigInfo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by r.savuschuk on 12/15/2014.
@@ -14,7 +13,7 @@ public class ServiceItemsController implements ServiceWorksAdapter.PriceChangeLi
 	private String TAG = getClass().getSimpleName();
 	private TextView sum_price;
    	private String [] itemNames;
-	private List<ServiceWorkItemModel> values = new ArrayList<ServiceWorkItemModel>();
+	private ArrayList<ServiceWorkItemModel> values = new ArrayList<ServiceWorkItemModel>();
 	private ServiceWorksAdapter worksAdapter;
 	private Activity context;
 	private double price;

@@ -66,7 +66,7 @@ public class GraphFragment extends BaseFragment implements DbEngine.Callback<Lis
 		try {//data.get(0) can be zero if db empty
 			switch (data.get(0).getActionType()) {
 				case SERVICE:
-					graphView.setTitle(activity.getResources().getString(R.string.eat_short));
+					graphView.setTitle(activity.getResources().getString(R.string.service_short));
 					addSerie(activity.getResources().getColor(R.color.eat_color), graphDataProcessor.initEatData(data));
 					break;
 

@@ -10,8 +10,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_weight="2"
-		android:text="@string/eat_quantity"
-		android:textSize="22sp"
+		android:text="@string/quantity"
+		android:textSize="16sp"
+		android:textColor="@color/main_base_color"
 		>
 	</TextView>
 
@@ -23,6 +24,8 @@
 		android:layout_below="@id/quantity_view"
 		android:singleLine="true"
 		android:minWidth="400dp"
+		android:inputType="numberDecimal"
+		android:digits="1234567890."
 		/>
 
 	</LinearLayout>

@@ -44,16 +44,17 @@ public class EventFactory {
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
 				eventController = new CarServiceController(activity, title_area, comment_area, main_area);
 				break;
-			case 1://crap
+			case 1://Admin
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
-				eventController = new CrapController(activity, title_area, comment_area);
+				eventController = new AdminController(activity, title_area, comment_area);
 				break;
 
-			case 2://pee
+			case 2://fuel
+				main_area.addView(li.inflate(R.layout.quantity_edit_layout, container, false));
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
-				eventController = new PeeController(activity, title_area, comment_area);
+				eventController = new FuelController(activity, title_area, comment_area,main_area);
 				break;
-			case 3://temperature
+			/*case 3://temperature
 				main_area.removeAllViewsInLayout();
 				main_area.addView(li.inflate(R.layout.quantity_spinner_layout, container, false));
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
@@ -65,7 +66,7 @@ public class EventFactory {
 				main_area.addView(li.inflate(R.layout.quantity_wheel_layout, container, false));
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
 				eventController = new WeightController(activity, title_area, comment_area, main_area);
-				break;
+				break;*/
 			case 5:
 				comment_area.addView(li.inflate(R.layout.comment_price_layout, container, false));
 				eventController = new CommentController(activity, title_area, comment_area);

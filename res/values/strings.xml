@@ -11,14 +11,14 @@
 	<string name="comment1"> Comment:</string>
 	<string name="temperature">Temperature</string>
 	<string name="weight">Weight</string>
-	<string name="eat_short">Eat</string>
+	<string name="service_short">Service</string>
 	<string name="about_app">About Application</string>
 	<string name="measure">Measure:</string>
 	<string name="admin">Administrative</string>
-	<string name="crap_short">Poo</string>
+	<string name="admin_short">Poo</string>
 	<string name="goto_stat">Go to Statistic   --></string>
 	<string name="fuel">Fuel</string>
-	<string name="pees_short">Pee</string>
+	<string name="fuel_short">Fuel</string>
 	<string name="items_only">\"Is not possible to show chart for this category\"</string>
 	<string name="temperature_short">°C</string>
 	<string name="weight_short">Wei</string>

@@ -16,20 +16,23 @@
 		<TextView
 			android:id="@+id/quantity_view"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="@dimen/dimen_40dp_h"
 			android:layout_weight="2"
 			android:text="@string/component"
-			android:textSize="16sp"
+			android:textSize="18sp"
+			android:gravity="center_vertical"
 			android:textColor="@color/main_base_color"
 			>
 		</TextView>
 		<TextView
 			android:id="@+id/service_works_but"
-			android:text="Services List"
+			android:text="Services list"
 			android:textColor="@color/white"
 			android:layout_width="match_parent"
-			android:layout_height="@dimen/dimen_30dp_h"
+			android:layout_height="@dimen/dimen_40dp_h"
 			android:background="@color/main_base_color"
+			android:gravity="center"
+			android:textSize="18sp"
 			android:layout_weight="2"
 			android:paddingLeft="@dimen/dimen_4dp_w"
 			android:paddingRight="@dimen/dimen_4dp_w"

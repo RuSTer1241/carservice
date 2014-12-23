@@ -15,7 +15,7 @@
 	    android:layout_alignParentLeft="true"
 	    android:layout_marginRight="6dip"
 	    android:contentDescription="TODO"
-	    android:src="@drawable/eat_bottle_item" />
+	    android:src="@drawable/service_item64" />
 	<ImageView
 		android:id="@+id/item_detail"
 		android:layout_width="50dp"

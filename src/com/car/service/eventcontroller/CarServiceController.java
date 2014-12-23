@@ -42,7 +42,7 @@ public class CarServiceController extends EventController implements ServiceWork
 		super(activity, titleLayout, commentLayout);
 		this.activity=activity;
 		title.setText(activity.getResources().getString(R.string.service));
-		titleImage.setImageResource(R.drawable.eat_bottle_dialogtitle);
+		titleImage.setImageResource(R.drawable.service_dialogtitle);
 		service_works =(TextView)mainLayout.findViewById(R.id.service_works_but);
 		service_works.setOnClickListener(serviceWorksButOnClickListener);
 		sum_price=(EditText)commentLayout.findViewById(R.id.price_edit_text);
@@ -66,7 +66,7 @@ public class CarServiceController extends EventController implements ServiceWork
 	@Override
 	public boolean saveEventToDb() {
 		engine.dbWriteRequest(DbEngine.Action.SERVICE, sum_price.getText().toString(), comment.getText().toString(), odometer.getText().toString(),
-			checkedItemsStr, new DbEngine.Callback<Long>() {
+			checkedItemsStr,null, new DbEngine.Callback<Long>() {
 				@Override
 				public void onSuccess(final Long data,Double sumPrice) {
 					WLog.e("DbEngine", " OnSuccess");
@@ -90,7 +90,6 @@ public class CarServiceController extends EventController implements ServiceWork
 		try {
 		for (ServiceWorkItemModel item : checkedList) {
 			    JSONObject obj = new JSONObject();
-			    //JSONArray array= new JSONArray();
 			    obj.put("id",item.getId());
 				obj.put("name",item.getWorkName());
 				obj.put("price",item.getPrice());

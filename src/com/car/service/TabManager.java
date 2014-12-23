@@ -22,28 +22,28 @@ public class TabManager {
         /*
         do not change tabs order
         it will have side effect in previous version user items in DB*/
-		TabHost.TabSpec spec = host.newTabSpec(context.getResources().getString(R.string.eat_short));
+		TabHost.TabSpec spec = host.newTabSpec(context.getResources().getString(R.string.service_short));
 		spec.setContent(R.id.tvTab1);
-		spec.setIndicator(context.getResources().getString(R.string.eat_short));
+		spec.setIndicator(context.getResources().getString(R.string.service_short));
 		host.addTab(spec);
-		host.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.eat_tab_sel);
+		host.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.service_tab_sel);
 
         spec = host.newTabSpec(context.getResources().getString(R.string.admin));
         spec.setContent(R.id.tvTab2);
-        spec.setIndicator(context.getResources().getString(R.string.crap_short));
+        spec.setIndicator(context.getResources().getString(R.string.admin_short));
         host.addTab(spec);
-        host.getTabWidget().getChildAt(1).setBackgroundResource(R.drawable.crap_tab_sel);
+        host.getTabWidget().getChildAt(1).setBackgroundResource(R.drawable.admin_tab_sel);
 
 
         spec = host.newTabSpec(context.getResources().getString(R.string.fuel));
 		spec.setContent(R.id.tvTab3);
-		spec.setIndicator(context.getResources().getString(R.string.pees_short));
+		spec.setIndicator(context.getResources().getString(R.string.fuel_short));
 		host.addTab(spec);
-		host.getTabWidget().getChildAt(2).setBackgroundResource(R.drawable.pees_tab_sel);
+		host.getTabWidget().getChildAt(2).setBackgroundResource(R.drawable.fuel_tab_sel);
 
 
 
-		spec = host.newTabSpec(context.getResources().getString(R.string.temperature));
+		/*spec = host.newTabSpec(context.getResources().getString(R.string.temperature));
 		spec.setContent(R.id.tvTab4);
 		spec.setIndicator(context.getResources().getString(R.string.temperature_short));
 		host.addTab(spec);
@@ -53,13 +53,13 @@ public class TabManager {
 		spec.setContent(R.id.tvTab5);
 		spec.setIndicator(context.getResources().getString(R.string.weight_short));
 		host.addTab(spec);
-		host.getTabWidget().getChildAt(4).setBackgroundResource(R.drawable.weight_tab_sel);
+		host.getTabWidget().getChildAt(4).setBackgroundResource(R.drawable.weight_tab_sel);*/
 
 		spec = host.newTabSpec(context.getResources().getString(R.string.comment));
-		spec.setContent(R.id.tvTab6);
+		spec.setContent(R.id.tvTab4);
 		spec.setIndicator(context.getResources().getString(R.string.comment_short));
 		host.addTab(spec);
-		host.getTabWidget().getChildAt(5).setBackgroundResource(R.drawable.comment_tab_sel);
+		host.getTabWidget().getChildAt(3).setBackgroundResource(R.drawable.comment_tab_sel);
 
 
 		for(int i=0;i<host.getTabWidget().getChildCount();i++)
@@ -86,12 +86,12 @@ public class TabManager {
 	public void deleteUnusableTabs(){
 		host.getTabWidget().getChildAt(1).setVisibility(View.GONE);
 		host.getTabWidget().getChildAt(2).setVisibility(View.GONE);
-		host.getTabWidget().getChildAt(5).setVisibility(View.GONE);
+		//host.getTabWidget().getChildAt(5).setVisibility(View.GONE);
 	}
 	public void restoreUnusableTabs(){
 		host.getTabWidget().getChildAt(1).setVisibility(View.VISIBLE);
 		host.getTabWidget().getChildAt(2).setVisibility(View.VISIBLE);
-		host.getTabWidget().getChildAt(5).setVisibility(View.VISIBLE);
+		//host.getTabWidget().getChildAt(5).setVisibility(View.VISIBLE);
 	}
 
 }

@@ -22,6 +22,7 @@ public class StatDBHelper extends SQLiteOpenHelper{
 		+ ActionContentTable.COL_ACT_COMMENT + " TEXT, "
 		+ ActionContentTable.COL_ODOMETER + " TEXT, "
 		+ ActionContentTable.COL_SERVICE_ITEMS + " TEXT, "
+		+ ActionContentTable.COL_QUANTITY + " TEXT, "
 		+ ActionContentTable.HEAP_STR + " TEXT "
 		+ ");";
 
@@ -99,10 +100,11 @@ public class StatDBHelper extends SQLiteOpenHelper{
 		public static final String COL_PRIMARY_ID = "action_id";
 		public static final String COL_DATA = "act_data";
 		public static final String COL_ACT_TYPE = "act_type";
-		public static final String COL_PRICE = "act_quantity";
+		public static final String COL_PRICE = "act_price";
 		public static final String COL_ACT_COMMENT = "act_comment";
 		public static final String COL_ODOMETER = "act_odometer";
 		public static final String COL_SERVICE_ITEMS = "act_service_items";
+		public static final String COL_QUANTITY = "act_quantity";
 		/**
 		 * You can put here all values without Database update
 		 */

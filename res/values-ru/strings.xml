@@ -10,14 +10,14 @@
 	<string name="comment:"> Коментарий:</string>
 	<string name="temperature">Температура</string>
 	<string name="weight">Вес</string>
-	<string name="eat_short">Еда</string>
+	<string name="service_short">Еда</string>
 	<string name="about_app">О приложении</string>
 	<string name="measure">Измерение:</string>
 	<string name="admin">По большому</string>
-	<string name="crap_short">По бол.</string>
+	<string name="admin_short">По бол.</string>
 	<string name="goto_stat">К статистике   --></string>
 	<string name="fuel">По маленькому</string>
-	<string name="pees_short">По мал.</string>
+	<string name="fuel_short">По мал.</string>
 	<string name="items_only">\"Невозможно показать график для этой категории\"</string>
 	<string name="temperature_short">°C</string>
 	<string name="weight_short">Вес</string>

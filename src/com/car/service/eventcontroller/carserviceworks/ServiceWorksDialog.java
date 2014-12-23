@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by r.savuschuk on 12/12/2014.
  */
-public class ServiceWorksDialog extends DialogFragment implements View.OnClickListener{
+public class ServiceWorksDialog extends DialogFragment implements View.OnClickListener {
 
 	DbEngine engine;
 	Context activityContext;
@@ -41,21 +41,17 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		engine= CarServiceApplication.getDbEngine();
-		activityContext=getActivity().getBaseContext();
+		engine = CarServiceApplication.getDbEngine();
+		activityContext = getActivity().getBaseContext();
 		try {
-			carServiceController = (CarServiceController)getArguments().getSerializable("CarServiceController");
-		}
-		catch (final ClassCastException e) {
+			carServiceController = (CarServiceController) getArguments().getSerializable("CarServiceController");
+		} catch (final ClassCastException e) {
 			throw new ClassCastException(this.toString() + " must transfer CarServiceController object");
 		}
-
-
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-		Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 		View v = inflater.inflate(R.layout.service_works_dialog, container, false);
 		getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -64,9 +60,9 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 		saveButton.setOnClickListener(this);
 		cancelButton = (Button) v.findViewById(R.id.serv_cancel);
 		cancelButton.setOnClickListener(this);
-		sum_price=(TextView)v.findViewById(R.id.serv_summary_price);
-		worksItemController=new ServiceItemsController(this.getActivity(),sum_price);
-		listview = (ListView)v.findViewById(R.id.service_works_list);
+		sum_price = (TextView) v.findViewById(R.id.serv_summary_price);
+		worksItemController = new ServiceItemsController(this.getActivity(), sum_price);
+		listview = (ListView) v.findViewById(R.id.service_works_list);
 		listview.setAdapter(worksItemController.getWorksAdapter());
 		return v;
 	}
@@ -86,21 +82,15 @@ public class ServiceWorksDialog extends DialogFragment implements View.OnClickLi
 					carServiceController.onDataSaved(sum_price.getText().toString(), list);
 					worksItemController.clear();
 					dismiss();
-				}
-				else
+				} else {
 					Toast.makeText(getActivity(), "Please, select Service works before saving", Toast.LENGTH_SHORT).show();
+				}
 				break;
-
 		}
-
 	}
 
 	public interface OnDialogDataSavedListener {
-		void onDataSaved(String price,List<ServiceWorkItemModel> checkedList);
+		void onDataSaved(String price, List<ServiceWorkItemModel> checkedList);
 	}
-
-
-
-
 }
 
